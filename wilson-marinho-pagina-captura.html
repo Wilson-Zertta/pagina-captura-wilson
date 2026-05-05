@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wilson Marinho · Análise de Perfil Gratuita</title>
+<meta name="description" content="Diagnóstico do seu perfil do Instagram com Wilson Marinho. Sem custo. Resposta em até 48h." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --grafite: #0E0E0E;
+  --offwhite: #F4F1EC;
+  --cinza: #8A8A8A;
+  --petroleo: #0F3543;
+  --areia: #E8DFD0;
+  --display: 'Inter', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+  --max: 1200px;
+  --gutter: 24px;
+  --line: 1px solid rgba(14,14,14,0.10);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+  background: var(--offwhite);
+  color: var(--grafite);
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; }
+
+.header {
+  border-bottom: var(--line);
+  position: sticky;
+  top: 0;
+  background: var(--offwhite);
+  z-index: 50;
+}
+.header__inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 20px var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand__name {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.brand__role {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--cinza);
+  letter-spacing: 0.08em;
+  padding-left: 12px;
+  border-left: 1px solid rgba(14,14,14,0.15);
+}
+.header__meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--cinza);
+  letter-spacing: 0.05em;
+}
+
+.hero {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 80px var(--gutter) 64px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.hero__label {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--cinza);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hero__label::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--cinza);
+}
+.hero__title {
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.0;
+  margin-bottom: 32px;
+}
+.hero__title em { font-style: normal; color: var(--petroleo); }
+.hero__sub {
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(14,14,14,0.75);
+  line-height: 1.6;
+  max-width: 520px;
+  margin-bottom: 40px;
+}
+.hero__bullets {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--cinza);
+  letter-spacing: 0.05em;
+  padding-top: 24px;
+  border-top: var(--line);
+}
+.hero__bullets > div { margin-bottom: 8px; }
+.hero__bullets > div:last-child { margin-bottom: 0; }
+
+.action-card {
+  background: var(--grafite);
+  color: var(--offwhite);
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+.action-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+.action-card__tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--areia);
+  margin-bottom: 24px;
+  display: inline-block;
+  padding: 6px 12px;
+  border: 1px solid rgba(232,223,208,0.3);
+  position: relative;
+}
+.action-card__title {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  position: relative;
+}
+.action-card__desc {
+  font-size: 15px;
+  color: rgba(244,241,236,0.7);
+  line-height: 1.6;
+  margin-bottom: 32px;
+  position: relative;
+}
+.action-card__list { list-style: none; margin-bottom: 32px; position: relative; }
+.action-card__list li {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: rgba(244,241,236,0.85);
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(244,241,236,0.08);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.action-card__list li::before { content: '→'; color: var(--petroleo); font-weight: 600; }
+.action-card__list li:last-child { border-bottom: none; }
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--petroleo);
+  color: var(--offwhite);
+  padding: 18px 28px;
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+.btn-primary:hover { background: #155571; }
+.btn-primary::after { content: '↗'; font-family: var(--mono); margin-left: 4px; }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  color: var(--grafite);
+  padding: 16px 24px;
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 600;
+  border: 1px solid var(--grafite);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-outline:hover { background: var(--grafite); color: var(--offwhite); }
+.btn-outline::after { content: '↗'; font-family: var(--mono); }
+
+.divider { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+.divider__line { border-top: var(--line); }
+
+.secondary {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 80px var(--gutter);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  align-items: center;
+}
+.secondary__label {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--cinza);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.secondary__title {
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.secondary__desc {
+  color: rgba(14,14,14,0.7);
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 480px;
+}
+
+.method {
+  background: var(--grafite);
+  color: var(--offwhite);
+  padding: 96px 0;
+  position: relative;
+  overflow: hidden;
+}
+.method::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+.method__inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  position: relative;
+}
+.method__head {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  margin-bottom: 64px;
+  align-items: end;
+}
+.method__label {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--areia);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.method__title {
+  font-size: 44px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+}
+.method__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(244,241,236,0.15);
+}
+.step {
+  padding: 40px 32px 32px 0;
+  border-right: 1px solid rgba(244,241,236,0.15);
+}
+.step:last-child { border-right: none; padding-right: 0; }
+.step:not(:first-child) { padding-left: 32px; }
+.step__num { font-family: var(--mono); font-size: 11px; color: var(--cinza); letter-spacing: 0.1em; margin-bottom: 24px; }
+.step__title { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 12px; line-height: 1.2; }
+.step__desc { color: rgba(244,241,236,0.65); font-size: 14px; line-height: 1.6; }
+
+.footer { border-top: var(--line); padding: 32px var(--gutter); }
+.footer__inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--cinza);
+  letter-spacing: 0.05em;
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(14,14,14,0.65);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  backdrop-filter: blur(4px);
+}
+.modal.is-open { display: flex; }
+.modal__inner {
+  background: var(--offwhite);
+  width: 100%;
+  max-width: 560px;
+  max-height: 92vh;
+  overflow-y: auto;
+  padding: 48px;
+  position: relative;
+  animation: modalIn 0.3s ease;
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.modal__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: 1px solid rgba(14,14,14,0.15);
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--grafite);
+  transition: all 0.2s ease;
+}
+.modal__close:hover { background: var(--grafite); color: var(--offwhite); border-color: var(--grafite); }
+.modal__label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--cinza);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.modal__title { font-size: 32px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.05; margin-bottom: 12px; }
+.modal__sub { color: rgba(14,14,14,0.65); font-size: 15px; line-height: 1.5; margin-bottom: 32px; }
+
+.field { margin-bottom: 20px; }
+.field__label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--grafite);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.field__input {
+  width: 100%;
+  padding: 14px 16px;
+  background: transparent;
+  border: 1px solid rgba(14,14,14,0.2);
+  font-family: var(--display);
+  font-size: 15px;
+  color: var(--grafite);
+  transition: border-color 0.2s ease;
+}
+.field__input:focus { outline: none; border-color: var(--grafite); }
+.field__input::placeholder { color: rgba(14,14,14,0.35); }
+.field__error {
+  display: none;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: #b32d2d;
+  margin-top: 6px;
+  letter-spacing: 0.03em;
+}
+.field.has-error .field__input { border-color: #b32d2d; }
+.field.has-error .field__error { display: block; }
+
+.form__submit {
+  width: 100%;
+  padding: 18px 28px;
+  background: var(--grafite);
+  color: var(--offwhite);
+  border: none;
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: background 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.form__submit:hover:not(:disabled) { background: var(--petroleo); }
+.form__submit:disabled { opacity: 0.6; cursor: not-allowed; }
+.form__submit::after { content: '↗'; font-family: var(--mono); }
+.form__submit.is-loading::after { content: ''; }
+
+.spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(244,241,236,0.3);
+  border-top-color: var(--offwhite);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  display: none;
+}
+.form__submit.is-loading .spinner { display: inline-block; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.form__error-banner {
+  display: none;
+  padding: 12px 16px;
+  background: rgba(179,45,45,0.08);
+  border-left: 2px solid #b32d2d;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: #b32d2d;
+  margin-bottom: 20px;
+}
+.form__error-banner.is-visible { display: block; }
+
+.thanks { display: none; text-align: left; }
+.thanks.is-visible { display: block; }
+.thanks__check {
+  width: 56px;
+  height: 56px;
+  border: 1.5px solid var(--petroleo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32px;
+  color: var(--petroleo);
+  font-size: 24px;
+}
+.thanks__title { font-size: 32px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 16px; }
+.thanks__sub { color: rgba(14,14,14,0.7); font-size: 15px; line-height: 1.6; margin-bottom: 24px; }
+.thanks__countdown {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--cinza);
+  padding: 16px;
+  background: var(--areia);
+  margin-bottom: 24px;
+  letter-spacing: 0.02em;
+}
+.thanks__countdown strong { color: var(--grafite); font-weight: 600; }
+.thanks__manual-link {
+  display: block;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--cinza);
+  text-align: center;
+  margin-top: 16px;
+}
+.thanks__manual-link a { color: var(--petroleo); text-decoration: underline; }
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; gap: 48px; padding: 56px var(--gutter) 48px; }
+  .hero__title { font-size: 44px; }
+  .secondary { grid-template-columns: 1fr; gap: 32px; padding: 56px var(--gutter); }
+  .secondary__title { font-size: 28px; }
+  .method__head { grid-template-columns: 1fr; gap: 24px; margin-bottom: 48px; }
+  .method__title { font-size: 32px; }
+  .method__grid { grid-template-columns: 1fr; }
+  .step { border-right: none; border-bottom: 1px solid rgba(244,241,236,0.15); padding: 32px 0 !important; }
+  .step:last-child { border-bottom: none; }
+  .header__meta { display: none; }
+  .footer__inner { flex-direction: column; gap: 12px; text-align: center; }
+  .modal__inner { padding: 32px 24px; }
+  .modal__title { font-size: 26px; }
+}
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+.hero__label, .hero__title, .hero__sub, .action-card { animation: fadeUp 0.6s ease backwards; }
+.hero__label { animation-delay: 0.05s; }
+.hero__title { animation-delay: 0.15s; }
+.hero__sub   { animation-delay: 0.25s; }
+.action-card { animation-delay: 0.35s; }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header__inner">
+    <div class="brand">
+      <svg width="22" height="22" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="2" y="0"  width="4"  height="28" fill="#0E0E0E"/>
+        <rect x="2" y="0"  width="24" height="4"  fill="#0E0E0E"/>
+        <rect x="2" y="12" width="18" height="4"  fill="#0E0E0E"/>
+      </svg>
+      <span class="brand__name">Wilson Marinho</span>
+      <span class="brand__role">Marketing Digital</span>
+    </div>
+    <div class="header__meta">PALMAS · TO</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <div class="hero__label">Análise de Perfil · Gratuita</div>
+    <h1 class="hero__title">
+      Seu perfil deveria<br />
+      atrair cliente.<br />
+      <em>Está atraindo?</em>
+    </h1>
+    <p class="hero__sub">
+      A maioria dos perfis de profissional liberal e negócio local é vitrine, não canal de aquisição. Eu faço o diagnóstico do seu perfil e te mostro exatamente o que está travando o fluxo de cliente — sem custo.
+    </p>
+    <div class="hero__bullets">
+      <div>→ Diagnóstico individual entregue por mim</div>
+      <div>→ Sem agência genérica, sem template pronto</div>
+      <div>→ Resposta em até 48h úteis</div>
+    </div>
+  </div>
+
+  <div class="action-card">
+    <span class="action-card__tag">01 · Análise Gratuita</span>
+    <h2 class="action-card__title">Diagnóstico do seu perfil em 48h</h2>
+    <p class="action-card__desc">
+      Você preenche um formulário rápido com seu perfil e segmento. Eu analiso e te devolvo um relatório com pontos críticos e o que precisa mudar para atrair cliente.
+    </p>
+    <ul class="action-card__list">
+      <li>Análise de bio, link e estrutura</li>
+      <li>Diagnóstico de posicionamento</li>
+      <li>3 ações prioritárias para aplicar</li>
+    </ul>
+    <button type="button" class="btn-primary" id="openFormBtn">
+      Solicitar análise gratuita
+    </button>
+  </div>
+</section>
+
+<div class="divider"><div class="divider__line"></div></div>
+
+<section class="secondary">
+  <div>
+    <div class="secondary__label">02 · Contato Direto</div>
+  </div>
+  <div>
+    <h3 class="secondary__title">Prefere conversar agora?</h3>
+    <p class="secondary__desc">
+      Se você já sabe o que precisa e quer falar direto comigo sobre proposta, estratégia ou serviço — fala comigo no WhatsApp. Sem chatbot, sem atendente, sem rodeio.
+    </p>
+    <a href="https://wa.me/5563984113251?text=Ol%C3%A1%20Wilson%2C%20vim%20pelo%20seu%20site." class="btn-outline" target="_blank" rel="noopener">
+      Chamar no WhatsApp
+    </a>
+  </div>
+</section>
+
+<section class="method">
+  <div class="method__inner">
+    <div class="method__head">
+      <div><div class="method__label">Método</div></div>
+      <div><h3 class="method__title">Como funciona o diagnóstico</h3></div>
+    </div>
+    <div class="method__grid">
+      <div class="step">
+        <div class="step__num">01</div>
+        <div class="step__title">Você preenche</div>
+        <div class="step__desc">4 campos rápidos: nome, WhatsApp, seu @ e o segmento em que atua. Leva menos de 1 minuto.</div>
+      </div>
+      <div class="step">
+        <div class="step__num">02</div>
+        <div class="step__title">Eu analiso</div>
+        <div class="step__desc">Olho seu perfil com critério técnico — bio, posicionamento, conteúdo, funil. Sem template, sem checklist genérico.</div>
+      </div>
+      <div class="step">
+        <div class="step__num">03</div>
+        <div class="step__title">Você recebe</div>
+        <div class="step__desc">Relatório com pontos críticos, oportunidades e três ações prioritárias para aplicar. Em até 48h úteis.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div>WILSON MARINHO · MARKETING DIGITAL</div>
+    <div>PALMAS, TO · 2026</div>
+  </div>
+</footer>
+
+<div class="modal" id="formModal" role="dialog" aria-modal="true" aria-labelledby="formTitle">
+  <div class="modal__inner">
+    <button type="button" class="modal__close" id="closeFormBtn" aria-label="Fechar">×</button>
+
+    <div id="formStage">
+      <div class="modal__label">Análise Gratuita · Etapa 1 de 1</div>
+      <h3 class="modal__title" id="formTitle">Vamos começar.</h3>
+      <p class="modal__sub">
+        Preencha os 4 campos abaixo. Em até 48h úteis você recebe a análise no WhatsApp.
+      </p>
+
+      <div class="form__error-banner" id="errorBanner">
+        Algo deu errado ao enviar. Tente novamente em instantes ou fale comigo no WhatsApp.
+      </div>
+
+      <form id="leadForm" novalidate>
+        <div class="field" data-field="nome">
+          <label class="field__label" for="nome">Nome completo</label>
+          <input class="field__input" type="text" id="nome" name="nome" placeholder="Como você quer ser chamado" required maxlength="120" />
+          <div class="field__error">Informe seu nome.</div>
+        </div>
+
+        <div class="field" data-field="whatsapp">
+          <label class="field__label" for="whatsapp">WhatsApp (com DDD)</label>
+          <input class="field__input" type="tel" id="whatsapp" name="whatsapp" placeholder="(63) 99999-9999" required maxlength="20" />
+          <div class="field__error">Informe um WhatsApp válido com DDD.</div>
+        </div>
+
+        <div class="field" data-field="instagram">
+          <label class="field__label" for="instagram">Seu @ do Instagram</label>
+          <input class="field__input" type="text" id="instagram" name="instagram" placeholder="@seuperfil" required maxlength="50" />
+          <div class="field__error">Informe seu @ do Instagram.</div>
+        </div>
+
+        <div class="field" data-field="segmento">
+          <label class="field__label" for="segmento">Segmento de atuação</label>
+          <input class="field__input" type="text" id="segmento" name="segmento" placeholder="Ex: dentista, médica, salão, advogado" required maxlength="120" />
+          <div class="field__error">Informe seu segmento.</div>
+        </div>
+
+        <button type="submit" class="form__submit" id="submitBtn">
+          <span class="spinner"></span>
+          <span class="form__submit-label">Enviar e receber análise</span>
+        </button>
+      </form>
+    </div>
+
+    <div class="thanks" id="thanksStage">
+      <div class="thanks__check">✓</div>
+      <h3 class="thanks__title">Pedido recebido.</h3>
+      <p class="thanks__sub">
+        Recebi suas informações. Em até 48h úteis te chamo no WhatsApp com a análise do seu perfil.
+      </p>
+      <div class="thanks__countdown">
+        Te redirecionando pro WhatsApp em <strong id="countdown">5</strong>s
+        para já deixar conversa aberta.
+      </div>
+      <a href="#" class="btn-primary" id="goWhatsappNow" style="text-decoration:none;">
+        Ir para o WhatsApp agora
+      </a>
+      <div class="thanks__manual-link">
+        Não foi redirecionado? <a href="#" id="manualWhatsappLink">Clique aqui</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const SUPABASE_URL = 'https://ybjapeknazrrepfjbrfe.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable__aKVhGsOzacwHPhMbq_R5Q_vu-J9WPb';
+
+// ATUALIZE com o WhatsApp do Wilson (formato internacional, sem + ou espaços)
+const WHATSAPP_NUMBER = '5563984113251';
+const WHATSAPP_BASE_MESSAGE = 'Olá Wilson, acabei de solicitar a análise de perfil pelo seu site.';
+
+const modal       = document.getElementById('formModal');
+const openBtn     = document.getElementById('openFormBtn');
+const closeBtn    = document.getElementById('closeFormBtn');
+const form        = document.getElementById('leadForm');
+const submitBtn   = document.getElementById('submitBtn');
+const submitLabel = submitBtn.querySelector('.form__submit-label');
+const errorBanner = document.getElementById('errorBanner');
+const formStage   = document.getElementById('formStage');
+const thanksStage = document.getElementById('thanksStage');
+const countdownEl = document.getElementById('countdown');
+const goNow       = document.getElementById('goWhatsappNow');
+const manualLink  = document.getElementById('manualWhatsappLink');
+
+function openModal() {
+  modal.classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => document.getElementById('nome').focus(), 100);
+}
+function closeModal() {
+  modal.classList.remove('is-open');
+  document.body.style.overflow = '';
+}
+openBtn.addEventListener('click', openModal);
+closeBtn.addEventListener('click', closeModal);
+modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+});
+
+function clearErrors() {
+  document.querySelectorAll('.field').forEach(f => f.classList.remove('has-error'));
+  errorBanner.classList.remove('is-visible');
+}
+function showFieldError(name) {
+  const f = document.querySelector('.field[data-field="' + name + '"]');
+  if (f) f.classList.add('has-error');
+}
+function validate(data) {
+  let ok = true;
+  if (!data.nome || data.nome.length < 2) { showFieldError('nome'); ok = false; }
+  if (!data.whatsapp || data.whatsapp.replace(/\D/g,'').length < 10) { showFieldError('whatsapp'); ok = false; }
+  if (!data.instagram || data.instagram.length < 2) { showFieldError('instagram'); ok = false; }
+  if (!data.segmento || data.segmento.length < 2) { showFieldError('segmento'); ok = false; }
+  return ok;
+}
+
+const wppInput = document.getElementById('whatsapp');
+wppInput.addEventListener('input', (e) => {
+  let v = e.target.value.replace(/\D/g, '').slice(0, 11);
+  if (v.length > 6) v = '(' + v.slice(0,2) + ') ' + v.slice(2,7) + '-' + v.slice(7);
+  else if (v.length > 2) v = '(' + v.slice(0,2) + ') ' + v.slice(2);
+  else if (v.length > 0) v = '(' + v;
+  e.target.value = v;
+});
+
+const igInput = document.getElementById('instagram');
+igInput.addEventListener('blur', (e) => {
+  let v = e.target.value.trim().replace(/^@+/, '');
+  if (v) e.target.value = '@' + v;
+});
+
+function getOrigem() {
+  const params = new URLSearchParams(window.location.search);
+  const utm = params.get('utm_source');
+  if (utm) return utm;
+  if (document.referrer) {
+    try { return new URL(document.referrer).hostname; } catch (e) {}
+  }
+  return 'direto';
+}
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  clearErrors();
+
+  const data = {
+    nome: document.getElementById('nome').value.trim(),
+    whatsapp: document.getElementById('whatsapp').value.trim(),
+    instagram: document.getElementById('instagram').value.trim().replace(/^@+/, ''),
+    segmento: document.getElementById('segmento').value.trim(),
+    origem: getOrigem(),
+    user_agent: navigator.userAgent.slice(0, 200)
+  };
+
+  if (!validate(data)) return;
+
+  submitBtn.disabled = true;
+  submitBtn.classList.add('is-loading');
+  submitLabel.textContent = 'Enviando…';
+
+  try {
+    const res = await fetch(SUPABASE_URL + '/rest/v1/analise_perfil_leads', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_ANON_KEY,
+        'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify(data)
+    });
+
+    if (!res.ok) {
+      const errText = await res.text();
+      console.error('Erro Supabase:', res.status, errText);
+      throw new Error('supabase_error');
+    }
+
+    showThanks(data);
+  } catch (err) {
+    console.error(err);
+    submitBtn.disabled = false;
+    submitBtn.classList.remove('is-loading');
+    submitLabel.textContent = 'Enviar e receber análise';
+    errorBanner.classList.add('is-visible');
+  }
+});
+
+function buildWhatsappUrl(leadData) {
+  const msg = leadData
+    ? WHATSAPP_BASE_MESSAGE + ' Meu nome é ' + leadData.nome + ' e meu @ é @' + leadData.instagram + '.'
+    : WHATSAPP_BASE_MESSAGE;
+  return 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg);
+}
+
+function showThanks(leadData) {
+  formStage.style.display = 'none';
+  thanksStage.classList.add('is-visible');
+
+  const wppUrl = buildWhatsappUrl(leadData);
+  goNow.href = wppUrl;
+  manualLink.href = wppUrl;
+
+  let s = 5;
+  countdownEl.textContent = s;
+  const t = setInterval(() => {
+    s--;
+    countdownEl.textContent = s;
+    if (s <= 0) {
+      clearInterval(t);
+      window.location.href = wppUrl;
+    }
+  }, 1000);
+}
+</script>
+
+</body>
+</html>
